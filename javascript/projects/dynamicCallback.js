@@ -6,12 +6,16 @@ function mul(a, b, callback) {
 
 function makeCal(...args) {
   let b = [];
-  args.forEach((elm, index) => {
-    if (index % 2 == 0) {
-      if (index + 1 < args.length) b.push(elm * args[index + 1]);
-      else b.push(elm);
+  let ind = 0;
+  while (ind < args.length) {
+    if (ind % 2 == 0) {
+      b.push(args[ind]);
+    } else {
+      b[Math.floor(ind / 2)] *= args[ind];
     }
-  });
+    ind++;
+  }
+
   console.log(b);
 
   let sum = 0;
